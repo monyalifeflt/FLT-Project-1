@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Template</title>
+</head>
+<body>
+    <h1>Create Template</h1>
+    <form action="{{ url_for('create_template') }}" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name">
+        <label for="table_title">Table Title:</label>
+        <input type="text" id="table_title" name="table_title">
+        <label for="table_text">Table Text:</label>
+        <input type="text" id="table_text" name="table_text">
+        <label for="literature">Literature:</label>
+        <input type="text" id="literature" name="literature">
+        <label for="requirements_file">Requirements File:</label>
+        <input type="file" id="requirements_file" name="requirements_file">
+        <button type="submit">Save Template</button>
+    </form>
+</body>
+</html>

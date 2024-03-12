@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Template - {{ template.name }}</title>
+</head>
+<body>
+    <h1>Edit Template - {{ template.name }}</h1>
+    <form action="{{ url_for('edit_template', template_id=template.id) }}" method="post" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{ template.name }}">
+        <label for="table_title">Table Title:</label>
+        <input type="text" id="table_title" name="table_title" value="{{ template.table_title }}">
+        <label for="table_text">Table Text:</label>
+        <input type="text" id="table_text" name="table_text" value="{{ template.table_text }}">
+        <label for="literature">Literature:</label>
+        <input type="text" id="literature" name="literature" value="{{ template.literature }}">
+        <label for="requirements_file">Requirements File:</label>
+        <input type="file" id="requirements_file" name="requirements_file">
+        {% if template.requirements_file %}
+            <p>Current Requirements File: <a href="{{ url_for('requirements_file', filename=template.requirements_file) }}">View File</a></p>
+        {% endif %}
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>
